@@ -1,0 +1,46 @@
+@primarycolor: #FF7F50;
+@color:#800080;
+@white_color: #FFF;
+
+.container {
+	background: @primarycolor;
+	height: 100%;
+
+	.row {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+
+		.btn-group {
+			display: flex;
+			flex-direction: row;
+
+			.button {
+				width: 25%;
+				font-size: 2em;
+				background: @primarycolor;
+				border: 1px solid @white_color;
+				font-weight: bold;
+			    font-family: Roboto;
+			    color: @white_color;
+			}
+
+			.operator {
+				font-size: 4em;
+			}
+
+			.full-width {
+				flex: 1;
+			}
+			
+		}
+	}
+
+	.txtInput {
+		height: 100px;
+		width: 100%;
+		font-size: 80px;
+		text-align: right;
+	}
+
+}
