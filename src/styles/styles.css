@@ -1,5 +1,5 @@
 .container {
-  background: #FF7F50;
+  background: #e67a2b;
   height: 100%;
 }
 .container .row {
@@ -14,11 +14,14 @@
 .container .row .btn-group .button {
   width: 25%;
   font-size: 2em;
-  background: #FF7F50;
+  background: #e67a2b;
   border: 1px solid #FFF;
   font-weight: bold;
   font-family: Roboto;
   color: #FFF;
+}
+.container .row .btn-group .button:hover {
+  background: #a84a05 !important;
 }
 .container .row .btn-group .operator {
   font-size: 4em;
@@ -27,8 +30,9 @@
   flex: 1;
 }
 .container .txtInput {
-  height: 100px;
-  width: 100%;
+  display: flex;
+  height: 100px !important;
+  flex: 1;
   font-size: 80px;
   text-align: right;
 }

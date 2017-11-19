@@ -1,5 +1,4 @@
-@primarycolor: #FF7F50;
-@color:#800080;
+@primarycolor: #e67a2b;
 @white_color: #FFF;
 
 .container {
@@ -25,6 +24,10 @@
 			    color: @white_color;
 			}
 
+			.button:hover {
+			    background: #a84a05 !important;
+			}
+
 			.operator {
 				font-size: 4em;
 			}
@@ -37,8 +40,9 @@
 	}
 
 	.txtInput {
-		height: 100px;
-		width: 100%;
+		display: flex;
+		height: 100px !important;
+		flex: 1;
 		font-size: 80px;
 		text-align: right;
 	}

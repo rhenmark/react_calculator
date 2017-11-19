@@ -3,8 +3,6 @@ import React, { Component } from "react";
 import '../styles/styles.css'
 class main extends Component {
 
-
-  	
   	constructor(props) {
   	  super(props);
   	
@@ -58,8 +56,7 @@ class main extends Component {
 	  				if(typeof lastInputData === 'string'){
 	  					input.splice(-1,1);
 	  				}
-
-	  				let total =  eval("'"+eval(input.join(""))+"'")
+	  				let total =  eval("'"+eval((input.join("").replace(/\b0+/g, "")))+"'")
 	  				this.setState({
 	  					inputNumber: [parseFloat(total)],
 	  					operation: false
@@ -79,41 +76,42 @@ class main extends Component {
 
   	render() {
   		const height = window.innerHeight,
-  			btnHeight = {
-  				height: (height-100) / 5
-  			};
+  			uiHeight = {
+  				height: (height / 6) + 'px' 
+  			},
+  			displayNum = (((this.state.inputNumber).join("")).replace(/\b0+/g, "")).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	    return (
 			<div className="container">
-					<div className="row">
-						<input type="text" className="txtInput" placeholder="0" value={(this.state.inputNumber).join("")} disabled/>
+					<div className="row" style={uiHeight}>
+						<input type="text" className="txtInput" placeholder="0" value={displayNum} disabled/>
 					</div>
 					<div className="row">
 						<div className="btn-group">
-							<button className="button" style={btnHeight} onClick={() => this.clickBtn(7)}>7</button>
-							<button className="button" style={btnHeight} onClick={() => this.clickBtn(8)}>8</button>
-							<button className="button" style={btnHeight} onClick={() => this.clickBtn(9)}>9</button>
-							<button className="button operator" style={btnHeight} onClick={() => this.clickBtn("/")}>÷</button>
+							<button className="button" style={uiHeight} onClick={() => this.clickBtn(7)}>7</button>
+							<button className="button" style={uiHeight} onClick={() => this.clickBtn(8)}>8</button>
+							<button className="button" style={uiHeight} onClick={() => this.clickBtn(9)}>9</button>
+							<button className="button operator" style={uiHeight} onClick={() => this.clickBtn("/")}>÷</button>
 						</div>
 						<div className="btn-group">
-							<button className="button" style={btnHeight} onClick={() => this.clickBtn(6)}>6</button>
-							<button className="button" style={btnHeight} onClick={() => this.clickBtn(5)}>5</button>
-							<button className="button" style={btnHeight} onClick={() => this.clickBtn(4)}>4</button>
-							<button className="button operator" style={btnHeight} onClick={() => this.clickBtn('*')}>*</button>
+							<button className="button" style={uiHeight} onClick={() => this.clickBtn(6)}>6</button>
+							<button className="button" style={uiHeight} onClick={() => this.clickBtn(5)}>5</button>
+							<button className="button" style={uiHeight} onClick={() => this.clickBtn(4)}>4</button>
+							<button className="button operator" style={uiHeight} onClick={() => this.clickBtn('*')}>*</button>
 						</div>
 						<div className="btn-group">
-							<button className="button" style={btnHeight} onClick={() => this.clickBtn(3)}>3</button>
-							<button className="button" style={btnHeight} onClick={() => this.clickBtn(2)}>2</button>
-							<button className="button" style={btnHeight} onClick={() => this.clickBtn(1)}>1</button>
-							<button className="button operator" style={btnHeight} onClick={() => this.clickBtn('-')}>-</button>
+							<button className="button" style={uiHeight} onClick={() => this.clickBtn(3)}>3</button>
+							<button className="button" style={uiHeight} onClick={() => this.clickBtn(2)}>2</button>
+							<button className="button" style={uiHeight} onClick={() => this.clickBtn(1)}>1</button>
+							<button className="button operator" style={uiHeight} onClick={() => this.clickBtn('-')}>-</button>
 						</div>
 						<div className="btn-group">
-							<button className="button" style={btnHeight} onClick={() => this.clickBtn(0)}>0</button>
-							<button className="button" style={btnHeight} onClick={() => this.clickBtn('.')}>.</button>
-							<button className="button" style={btnHeight} onClick={() => this.clickBtn("=")}>=</button>
-							<button className="button operator" style={btnHeight} onClick={() => this.clickBtn('+')}>+</button>
+							<button className="button" style={uiHeight} onClick={() => this.clickBtn(0)}>0</button>
+							<button className="button" style={uiHeight} onClick={() => this.clickBtn('.')}>.</button>
+							<button className="button" style={uiHeight} onClick={() => this.clickBtn("=")}>=</button>
+							<button className="button operator" style={uiHeight} onClick={() => this.clickBtn('+')}>+</button>
 						</div>
 						<div className="btn-group">
-							<button className="button full-width" style={btnHeight} onClick={() => this.clickBtn("AC")}>RESET</button>
+							<button className="button full-width" style={uiHeight} onClick={() => this.clickBtn("AC")}>RESET</button>
 						</div>
 					</div>
 			</div>    	 
